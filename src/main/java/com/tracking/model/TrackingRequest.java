@@ -11,18 +11,17 @@ import lombok.Setter;
 @Getter  // Generates getter methods for all fields
 @Setter  // Generates setter methods for all fields
 public class TrackingRequest {
+    //@NotBlank
+    
     @NotNull
-    @NotBlank
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid origin country code")
     private String originCountryId;
 
     @NotNull
-    @NotBlank
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid destination country code")
     private String destinationCountryId;
 
     @NotNull
-    @NotBlank
     @Pattern(regexp = "^\\d+(\\.\\d{1,3})?$", message = "Invalid weight")
     private String weight;
 
@@ -34,12 +33,10 @@ public class TrackingRequest {
     private UUID customerId;
 
     @NotNull
-    @NotBlank
     private String customerName;
 
     //@ValidCustomerSlug
     @NotNull
-    @NotBlank
     private String customerSlug;
 
     // Getters and Setters
