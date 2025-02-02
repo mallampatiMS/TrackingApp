@@ -37,9 +37,9 @@ public class TrackingRequest {
     @NotBlank
     private String customerName;
 
+    //@ValidCustomerSlug
     @NotNull
     @NotBlank
-    @ValidCustomerSlug
     private String customerSlug;
 
     // Getters and Setters
