@@ -8,6 +8,9 @@ WORKDIR /app
 COPY . .
 
 # Build the application
+RUN chmod +x mvnw
+
+# Build the application
 RUN ./mvnw clean package
 
 # Expose the port your Spring Boot app runs on
