@@ -1,5 +1,5 @@
 target/
-.mvn/
+#.mvn/
 *.log
 *.iml
 .DS_Store
