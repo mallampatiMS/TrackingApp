@@ -18,10 +18,11 @@ public class CustomerSlugValidator implements ConstraintValidator<ValidCustomerS
         if (customerSlug == null || customerSlug.isEmpty()) {
             return true;
         }
-
+        System.out.println("customerSlug:"+customerSlug);
         HibernateConstraintValidatorContext hibernateContext = context.unwrap(HibernateConstraintValidatorContext.class);
         // Now you can access the root bean or custom parameters if needed
         Object rootBean = hibernateContext.getConstraintValidatorPayload(TrackingRequest.class);
+        System.out.println("rootBean:"+rootBean.toString());
 
         // Dynamically adding customer name to the error message
         //Object rootBean = (TrackingRequest) context.getCustomerName();
