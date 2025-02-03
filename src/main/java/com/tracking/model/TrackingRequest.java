@@ -2,6 +2,8 @@ package com.tracking.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tracking.validation.ValidCustomerSlug;
 import jakarta.validation.constraints.Pattern;
