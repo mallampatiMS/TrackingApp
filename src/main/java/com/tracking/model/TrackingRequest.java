@@ -2,6 +2,7 @@ package com.tracking.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tracking.validation.ValidCustomerSlug;
 import jakarta.validation.constraints.Pattern;
 import java.util.UUID;
