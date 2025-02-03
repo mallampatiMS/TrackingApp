@@ -22,12 +22,11 @@ public class CustomerSlugValidator implements ConstraintValidator<ValidCustomerS
         HibernateConstraintValidatorContext hibernateContext = context.unwrap(HibernateConstraintValidatorContext.class);
         // Now you can access the root bean or custom parameters if needed
         Object rootBean = hibernateContext.getConstraintValidatorPayload(TrackingRequest.class);
-        System.out.println("rootBean:"+rootBean.toString());
+       // System.out.println("rootBean:"+rootBean.toString());
 
         // Dynamically adding customer name to the error message
         //Object rootBean = (TrackingRequest) context.getCustomerName();
-        //Object rootBean = context.getCustomerName();
-        
+         
         if (rootBean instanceof TrackingRequest requestDto) {  // Replace with your DTO class
          
             // Validation regex for slug-case

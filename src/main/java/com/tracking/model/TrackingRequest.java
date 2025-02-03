@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Digits;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tracking.validation.ValidCustomerSlug;
 import jakarta.validation.constraints.Pattern;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,32 +19,39 @@ public class TrackingRequest {
     
     @NotNull(message = "originCountryId must not be null")
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid origin country code")
+    @JsonProperty("origin_country_id")
     private String originCountryId;
 
     @NotNull(message = "destinationCountryId must not be null")
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid destination country code")
+    @JsonProperty("destination_country_id")
     private String destinationCountryId;
 
     @NotNull(message = "weight must not be null")
     //@Pattern(regexp = "^\\d+(\\.\\d{1,3})?$", message = "Invalid weight")
     @DecimalMin(value = "0.001", message = "Weight must be at least 0.001 kg")
     @Digits(integer = 10, fraction = 3, message = "Weight can have up to 3 decimal places")
+    @JsonProperty("weight")
     private Double weight;
 
     @NotNull(message = "createdAt must not be null")
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}([+-]\\d{2}:\\d{2}|Z)$", message = "Invalid timestamp")
+    @JsonProperty("created_at")
     private String createdAt;
 
     @NotNull(message = "customerId must not be null")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @JsonProperty("customer_id")
     private UUID customerId;
 
     @NotNull(message = "customerName must not be null")
+    @JsonProperty("customer_name")
     private String customerName;
 
-    @ValidCustomerSlug
+    //@ValidCustomerSlug
     @NotNull(message = "customerSlug must not be null")
     @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$", message = "Invalid slug format")
+    @JsonProperty("customer_slug")
     private String customerSlug;
 
     // Getters and Setters
