@@ -13,30 +13,31 @@ import lombok.Setter;
 public class TrackingRequest {
     //@NotBlank
     
-    @NotNull
+    @NotNull(message = "originCountryId must not be null")
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid origin country code")
     private String originCountryId;
 
-    @NotNull
+    @NotNull(message = "destinationCountryId must not be null")
     @Pattern(regexp = "^[A-Z]{2}$", message = "Invalid destination country code")
     private String destinationCountryId;
 
-    @NotNull
+    @NotNull(message = "weight must not be null")
     @Pattern(regexp = "^\\d+(\\.\\d{1,3})?$", message = "Invalid weight")
     private String weight;
 
-    @NotNull
+    @NotNull(message = "createdAt must not be null")
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}([+-]\\d{2}:\\d{2}|Z)$", message = "Invalid timestamp")
     private String createdAt;
 
-    @NotNull
+    @NotNull(message = "customerId must not be null")
     private UUID customerId;
 
-    @NotNull
+    @NotNull(message = "customerName must not be null")
     private String customerName;
 
     //@ValidCustomerSlug
-    @NotNull
+    @NotNull(message = "customerSlug must not be null")
+    @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$", message = "Invalid slug format")
     private String customerSlug;
 
     // Getters and Setters

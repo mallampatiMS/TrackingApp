@@ -19,7 +19,7 @@ public class TrackingNumberController {
 
     @RateLimiter(name = "trackingApiRateLimiter", fallbackMethod = "fallbackForRateLimiter")
     @GetMapping(value = "/next-tracking-number", produces = "application/json")
-    public TrackingResponse getNextTrackingNumber(@Valid TrackingRequest request) {
+    public TrackingResponse getNextTrackingNumber(@Valid @RequestBody TrackingRequest request) {
         return trackingNumberService.generateTrackingNumber(request);
     }
 
