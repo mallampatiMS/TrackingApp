@@ -26,4 +26,9 @@ public class TrackingNumberController {
     public TrackingResponse fallbackForRateLimiter(TrackingRequest request, Exception ex) {
         return new TrackingResponse("RATE_LIMIT_EXCEEDED", Instant.ofEpochMilli(System.currentTimeMillis()));
     }
+
+    @PostMapping("/test")
+    public void testJsonMapping(@RequestBody String json) {
+        System.out.println("Received JSON: " + json);
+    }
 }
