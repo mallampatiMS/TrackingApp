@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.tracking.validation.ValidCustomerSlug;
 import jakarta.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -42,6 +43,7 @@ public class TrackingRequest {
     @NotNull(message = "customerId must not be null")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @JsonProperty("customer_id")
+    @JsonDeserialize(as = UUID.class)
     private UUID customerId;
 
     @NotNull(message = "customerName must not be null")
