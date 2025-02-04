@@ -6,6 +6,9 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import com.tracking.validation.ValidCustomerSlug;
 import jakarta.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,12 +36,12 @@ public class TrackingRequest {
     @DecimalMin(value = "0.001", message = "Weight must be at least 0.001 kg")
     @Digits(integer = 10, fraction = 3, message = "Weight can have up to 3 decimal places")
     @JsonProperty("weight")
-    private Double weight;
+    private BigDecimal weight;
 
     @NotNull(message = "createdAt must not be null")
-    @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}([+-]\\d{2}:\\d{2}|Z)$", message = "Invalid timestamp")
     @JsonProperty("created_at")
-    private String createdAt;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
+    private OffsetDateTime createdAt;
 
     @NotNull(message = "customerId must not be null")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
