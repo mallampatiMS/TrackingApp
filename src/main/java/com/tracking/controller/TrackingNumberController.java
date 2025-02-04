@@ -20,7 +20,7 @@ public class TrackingNumberController {
     @RateLimiter(name = "trackingApiRateLimiter", fallbackMethod = "fallbackForRateLimiter")
     @PostMapping(value = "/next-tracking-number", produces = "application/json")
     public TrackingResponse getNextTrackingNumber(@RequestBody @Valid  TrackingRequest trackingRequest) {
-        System.out.println("Received request: " + trackingRequest.toString());
+        System.out.println("Received request weight:" + trackingRequest.getWeight() + ":");
         return trackingNumberService.generateTrackingNumber(trackingRequest);
     }
 

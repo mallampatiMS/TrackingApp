@@ -40,7 +40,7 @@ public class TrackingRequest {
 
     @NotNull(message = "createdAt must not be null")
     @JsonProperty("created_at")
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private OffsetDateTime createdAt;
 
     @NotNull(message = "customerId must not be null")
