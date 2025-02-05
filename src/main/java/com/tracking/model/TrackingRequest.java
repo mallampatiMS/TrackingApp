@@ -33,12 +33,12 @@ public class TrackingRequest {
 
     @NotNull(message = "weight must not be null")
     //@Pattern(regexp = "^\\d+(\\.\\d{1,3})?$", message = "Invalid weight")
-    @Pattern(regexp = "^\\d{1,10}(\\.\\d{1,3})?$", message = "Weight must be a valid number with up to 3 decimal places")
-    //@Digits(integer = 10, fraction = 3, message = "Weight can have up to 3 decimal places")
-    //@DecimalMin(value = "0.001",  message = "Weight must be at least 0.001 kg")    
+    //@Pattern(regexp = "^\\d{1,10}(\\.\\d{1,3})?$", message = "Weight must be a valid number with up to 3 decimal places")
+    @Digits(integer = 10, fraction = 3, message = "Weight can have up to 3 decimal places")
+    @DecimalMin(value = "0.001",  message = "Weight must be at least 0.001 kg")    
     //@JsonFormat(shape = JsonFormat.Shape.STRING)
     @JsonProperty("weight")
-    private String weight;
+    private BigDecimal weight;
 
     @NotNull(message = "createdAt must not be null")
     @JsonProperty("created_at")
